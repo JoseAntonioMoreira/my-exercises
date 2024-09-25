@@ -9,7 +9,7 @@ public class Pokemon {
     private Ability[] abilities = new Ability[2];
     private int evolution;
     private int health;
-    
+
     public Pokemon(String name, String type1, String type2, String category, String weakness, Ability[] abilities, int evolution, int health) {
         this.name = name;
         this.type1 = type1;
@@ -49,7 +49,7 @@ public class Pokemon {
         return health;
     }
 
-    public void ReceiveDamage(int attackDamage, String weakness) {
+    public void receiveDamage(int attackDamage, String weakness) {
         if (weakness == this.weakness) {
             health -= attackDamage * 2;
         } else {
@@ -57,18 +57,16 @@ public class Pokemon {
         }
     }
 
+    public Ability[] getAbilities()
+    {
+        return abilities;
+    }
+
     public Ability getAbility(int index) {
-        if (index >= abilities.length) {
+        if (index <= abilities.length) {
             return abilities[index];
         }
         return null;
-    }
-
-    public String getAbilityName(int index) {
-        if (index >= abilities.length) {
-            return abilities[index].getName();
-        }
-        return " ";
     }
 
     public int getAbilityDamage(int index) {
