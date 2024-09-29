@@ -81,7 +81,8 @@ public class Ai {
     }
 
     public String emailValidator(){
-        return "";
+        return "^[0-9a-zA-Z%&#_.-]+@[0-9a-zA-Z]+(\\.)?[a-zA-Z]{2,3}$";
+        //return "^[0-9a-zA-Z%&#_.-]+@[0-9a-zA-Z]+\\.[a-zA-Z]{2,3}$";
     }
 }
 
