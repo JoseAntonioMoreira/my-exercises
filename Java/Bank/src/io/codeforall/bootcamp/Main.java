@@ -5,11 +5,11 @@ public class Main {
         Person person = new Person();
         Person person1 = new Person();
 
-        person.depositMoney(1500);
+        person.depositMoney(50);
         person.checkMoney();
+        person.withdraw(450);
+        person.checkMoney();
+        person.transferMoney(person1.getAccountID(), 1000);
 
-        person.transferMoney(person1.getAccountID(),500);
-        person1.checkMoney();
-        person.checkMoney();
     }
 }
