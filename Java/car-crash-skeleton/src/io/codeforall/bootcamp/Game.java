@@ -13,9 +13,11 @@ public class Game {
 
     /** Animation delay */
     private int delay;
-
+    private int cols;
+    private int rows;
     public Game(int cols, int rows, int delay) {
-
+        this.cols = cols;
+        this.rows =rows;
         Field.init(cols, rows);
         this.delay = delay;
 
@@ -30,6 +32,7 @@ public class Game {
         for (int i = 0; i < cars.length; i++) {
             cars[i] = CarFactory.getNewCar();
         }
+
 
         Field.draw(cars);
 
@@ -58,7 +61,23 @@ public class Game {
     }
 
     private void moveAllCars() {
+        for (int i = 0; i < cars.length; i++) {
+            cars[i].moveCar();
+        }
+        for (int i = 0; i < cars.length; i++) {
+            if(i + 1 >= cars.length){
+                return;
+            }
+            for (int j = i +1  ; j < cars.length ; j++) {
+                if (cars[i].getPos().getRow() == cars[j].getPos().getRow() && cars[i].getPos().getCol() == cars[j].getPos().getCol()) {
+                    cars[i].setCrashed(true);
+                    cars[j].setCrashed(true);
+                }
 
+            }
+
+
+        }
     }
 
 }

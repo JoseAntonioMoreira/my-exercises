@@ -77,4 +77,5 @@ public final class Field {
     public static int getHeight() {
         return height;
     }
+
 }
