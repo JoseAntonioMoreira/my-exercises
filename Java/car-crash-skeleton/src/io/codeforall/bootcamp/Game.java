@@ -8,16 +8,21 @@ public class Game {
 
     public static final int MANUFACTURED_CARS = 20;
 
-    /** Container of Cars */
+    /**
+     * Container of Cars
+     */
     private Car[] cars;
 
-    /** Animation delay */
+    /**
+     * Animation delay
+     */
     private int delay;
     private int cols;
     private int rows;
+
     public Game(int cols, int rows, int delay) {
         this.cols = cols;
-        this.rows =rows;
+        this.rows = rows;
         Field.init(cols, rows);
         this.delay = delay;
 
@@ -61,23 +66,23 @@ public class Game {
     }
 
     private void moveAllCars() {
-        for (int i = 0; i < cars.length; i++) {
-            cars[i].moveCar();
+        for (Car car : cars) {
+            car.moveCar();
         }
+        checkForCollisions();
+    }
+
+    private void checkForCollisions() {
         for (int i = 0; i < cars.length; i++) {
-            if(i + 1 >= cars.length){
+            if (i + 1 >= cars.length) {
                 return;
             }
-            for (int j = i +1  ; j < cars.length ; j++) {
+            for (int j = i + 1; j < cars.length; j++) {
                 if (cars[i].getPos().getRow() == cars[j].getPos().getRow() && cars[i].getPos().getCol() == cars[j].getPos().getCol()) {
                     cars[i].setCrashed(true);
                     cars[j].setCrashed(true);
                 }
-
             }
-
-
         }
     }
-
 }
