@@ -11,14 +11,13 @@ public class Game {
     private SniperRifle sniperRifle;
     private int shotsFired;
 
-    public Game() {
+    public Game(int numberOfObjects) {
         sniperRifle = new SniperRifle();
         shotsFired = 0;
+        createObjects(numberOfObjects);
     }
 
-    public void start(int numberofObjects) {
-        createObjects(numberofObjects);
-
+    public void start() {
         for (int i = 0; i < gameObjects.length; i++) {
             System.out.println(gameObjects[i].getMessage());
             if (gameObjects[i] instanceof Enemy) {
@@ -31,9 +30,9 @@ public class Game {
         System.out.println("Enemies downed in " + shotsFired + " shots");
     }
 
-    private GameObject[] createObjects(int numberofObjects) {
+    private GameObject[] createObjects(int numberOfObjects) {
 
-        gameObjects = new GameObject[numberofObjects];
+        gameObjects = new GameObject[numberOfObjects];
 
         for (int i = 0; i < gameObjects.length; i++) {
             double randomNumber = Math.random();
