@@ -8,16 +8,9 @@ public class Main {
 
         try {
             fileManager.createFile("hello");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-
-        try {
             fileManager.getFile("hello");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
 }
