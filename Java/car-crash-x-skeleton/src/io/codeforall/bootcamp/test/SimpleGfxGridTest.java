@@ -193,7 +193,7 @@ public class SimpleGfxGridTest {
             if (gridPos.getWidth() != grid.getCellSize() || gridPos.getHeight() != grid.getCellSize()) {
                 return new TestResult(false, "shape has the wrong size");
             }
-            System.out.println(gridPos.getX() + " " + grid.getCellSize());
+
             if (gridPos.getX() != SimpleGfxGrid.PADDING + grid.getCellSize() || gridPos.getY() != SimpleGfxGrid.PADDING) {
                 return new TestResult(false, "shape is not properly placed on the grid");
             }
