@@ -67,9 +67,7 @@ public class Game {
         cars = new Car[manufacturedCars];
         collisionDetector = new CollisionDetector(cars);
 
-        myCar = new MyCar(grid.makeGridPosition(), CarType.MYCAR);
-        myCar.setCollisionDetector(collisionDetector);
-        myCar.setGrid(grid);
+
 
         for (int i = 0; i < manufacturedCars; i++) {
 
@@ -78,6 +76,10 @@ public class Game {
             cars[i].setGrid(grid);
 
         }
+
+        myCar = new MyCar(grid.makeGridPosition(), CarType.MYCAR);
+        myCar.setCollisionDetector(collisionDetector);
+        myCar.setGrid(grid);
 
     }
 
