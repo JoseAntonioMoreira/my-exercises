@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Bank/Bank.iml" filepath="$PROJECT_DIR$/Bank/Bank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exceptions/Exceptions.iml" filepath="$PROJECT_DIR$/Exceptions/Exceptions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Game/Game.iml" filepath="$PROJECT_DIR$/Game/Game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IterableIntegerRange/IterableIntegerRange.iml" filepath="$PROJECT_DIR$/IterableIntegerRange/IterableIntegerRange.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RockPaperScissor/RockPaperScissor.iml" filepath="$PROJECT_DIR$/RockPaperScissor/RockPaperScissor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SetUniqueWords/SetUniqueWords.iml" filepath="$PROJECT_DIR$/SetUniqueWords/SetUniqueWords.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SniperElite/SniperElite.iml" filepath="$PROJECT_DIR$/SniperElite/SniperElite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SniperEliteInterfaces/SniperEliteInterfaces.iml" filepath="$PROJECT_DIR$/SniperEliteInterfaces/SniperEliteInterfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Strings/Strings.iml" filepath="$PROJECT_DIR$/Strings/Strings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TODOList/TODOList.iml" filepath="$PROJECT_DIR$/TODOList/TODOList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/car-crash-skeleton/car-crash-skeleton.iml" filepath="$PROJECT_DIR$/car-crash-skeleton/car-crash-skeleton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/car-crash-x-skeleton/car-crash-x-skeleton.iml" filepath="$PROJECT_DIR$/car-crash-x-skeleton/car-crash-x-skeleton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-vs-tests-skeleton/java-vs-tests-skeleton.iml" filepath="$PROJECT_DIR$/java-vs-tests-skeleton/java-vs-tests-skeleton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/linked-list/linked-list.iml" filepath="$PROJECT_DIR$/linked-list/linked-list.iml" />
+      <module fileurl="file://$PROJECT_DIR$/linked-list-skeleton/linked-list-skeleton.iml" filepath="$PROJECT_DIR$/linked-list-skeleton/linked-list-skeleton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-exercises.iml" filepath="$PROJECT_DIR$/my-exercises.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myWorld/myWorld.iml" filepath="$PROJECT_DIR$/myWorld/myWorld.iml" />
+    </modules>
+  </component>
+</project>
