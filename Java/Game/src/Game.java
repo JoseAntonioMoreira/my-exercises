@@ -11,7 +11,7 @@ public class Game {
         canvas = new Rectangle(10, 10, CANVAS_WIDTH, CANVAS_HEIGHT);
         canvas.draw();
         ball = new Ball();
-        ball.setVelocity(-5, 5);
+        ball.setVelocity(-10, 10);
     }
 
     public void update(long millis) throws InterruptedException {
