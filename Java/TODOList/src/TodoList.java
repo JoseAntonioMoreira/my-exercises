@@ -7,7 +7,7 @@ public class TodoList{
         LOW;
     }
 
-    private PriorityQueue<Task> taskQueue;
+    private final PriorityQueue<Task> taskQueue;
 
     public TodoList() {
         taskQueue = new PriorityQueue<>();

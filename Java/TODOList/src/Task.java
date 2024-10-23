@@ -1,8 +1,8 @@
 public class Task implements Comparable<Task>{
 
-    private TodoList.Importance importance;
-    private int priority;
-    private String item;
+    private final TodoList.Importance importance;
+    private final int priority;
+    private final String item;
 
     public Task(TodoList.Importance importance, int priority, String item){
         this.importance = importance;
