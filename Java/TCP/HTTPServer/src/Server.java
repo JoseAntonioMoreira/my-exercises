@@ -25,9 +25,11 @@ public class Server {
         socket = serverSocket.accept();
         out = socket.getOutputStream();
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        
+         handleRequest();
     }
 
-    public void handleRequest() throws IOException {
+    private void handleRequest() throws IOException {
         request = in.readLine();
         switch (request) {
             case "GET / HTTP/1.1", "GET /index.html HTTP/1.1":
