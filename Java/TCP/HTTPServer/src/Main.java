@@ -1,11 +1,11 @@
 public class Main {
     public static void main(String[] args) {
         try {
-            new Server().sendIndex();
+            while (true){
+                new Server().handleRequest();
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-
     }
 }
