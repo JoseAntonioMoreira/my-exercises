@@ -6,7 +6,7 @@ import java.nio.file.Path;
 
 public class Server {
     String hostName = "localhost";
-    int serverPort = 60000;
+    int serverPort = 60001;
     ServerSocket serverSocket;
     Socket socket;
 
