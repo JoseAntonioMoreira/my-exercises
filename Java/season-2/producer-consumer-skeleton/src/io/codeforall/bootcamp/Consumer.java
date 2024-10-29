@@ -22,7 +22,13 @@ public class Consumer implements Runnable {
 
     @Override
     public void run() {
-
+        try {
+            for (int i = 0; i < elementNum; i++) {
+                System.out.println("Eating the pizza " + queue.poll().toString());
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
 }

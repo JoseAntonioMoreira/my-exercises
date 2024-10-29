@@ -1,10 +1,15 @@
 package io.codeforall.bootcamp.bqueue;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Blocking Queue
  * @param <T> the type of elements stored by this queue
  */
 public class BQueue<T> {
+    Queue<T> queue;
+    int limit;
 
     /**
      * Constructs a new queue with a maximum size
@@ -12,8 +17,8 @@ public class BQueue<T> {
      */
     public BQueue(int limit) {
 
-        throw new UnsupportedOperationException();
-
+        this.limit = limit;
+        queue = new LinkedList<>();
     }
 
     /**
@@ -21,10 +26,13 @@ public class BQueue<T> {
      * Blocking operation if the queue is full
      * @param data the data to add to the queue
      */
-    public void offer(T data) {
-
-        throw new UnsupportedOperationException();
-
+    public synchronized void offer(T data) throws InterruptedException {
+        while (queue.size() >= limit){
+            wait();
+        }
+        notifyAll();
+        System.out.println("Creating a " + data.toString());
+        queue.offer(data);
     }
 
     /**
@@ -32,10 +40,12 @@ public class BQueue<T> {
      * Blocking operation if the queue is empty
      * @return the data from the head of the queue
      */
-    public T poll() {
-
-        throw new UnsupportedOperationException();
-
+    public synchronized T poll() throws InterruptedException {
+        while (queue.size() == 0){
+            wait();
+        }
+        notifyAll();
+        return queue.poll();
     }
 
     /**
@@ -43,9 +53,7 @@ public class BQueue<T> {
      * @return the number of elements
      */
     public int getSize() {
-
-        throw new UnsupportedOperationException();
-
+        return queue.size();
     }
 
     /**
@@ -53,9 +61,7 @@ public class BQueue<T> {
      * @return the maximum number of elements
      */
     public int getLimit() {
-
-        throw new UnsupportedOperationException();
-
+        return limit;
     }
 
 }

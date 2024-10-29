@@ -22,6 +22,13 @@ public class Producer implements Runnable {
 
     @Override
     public void run() {
+        try {
+            for (int i = 0; i < elementNum; i++) {
+                queue.offer(new Pizza());
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
     }
 
