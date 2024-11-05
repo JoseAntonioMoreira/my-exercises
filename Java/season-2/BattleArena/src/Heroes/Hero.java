@@ -3,6 +3,7 @@ package Heroes;
 import Abilities.AbstractAbility;
 
 public abstract class Hero {
+    protected String name;
     protected int health;
     protected int mana;
     protected int defense;
@@ -10,19 +11,32 @@ public abstract class Hero {
     protected int damage;
     protected AbstractAbility ability;
 
+    public String getName() {
+        return name;
+    }
+
     public int getHealth() {
         return health;
     }
 
-    public int getMana() {
-        return mana;
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public int getSpeed() {
         return speed;
     }
 
-    public Hero(int health, int mana, int defense, int speed, int damage) {
+    public int getDefense() {
+        return defense;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    public Hero(String name, int health, int mana, int defense, int speed, int damage) {
+        this.name = name;
         this.health = health;
         this.mana = mana;
         this.defense = defense;
@@ -31,16 +45,29 @@ public abstract class Hero {
     }
 
     public void takeDamage(int damage) {
-        if (health > 0 && defense < damage) {
-            health -= damage - defense;
-        }
-    }
-
-    public void attack(Hero enemy) {
-        if (checkAbility(enemy)) {
+        if(health <= 0){
+            System.out.println(name + " is already dead");
             return;
         }
-        enemy.takeDamage(damage);
+
+        if (defense < damage) {
+            System.out.println(name + " took " + (damage - defense) + " damage");
+            health -= damage - defense;
+            return;
+        }
+
+        System.out.println(name + " resisted the " + damage + " damage because is defense is " + defense);
+    }
+
+    public void attack(Hero hero) {
+        System.out.println(name + " turn:");
+
+        if (checkAbility(hero)) {
+            return;
+        }
+
+        System.out.println("normal attack " + damage + " true damage");
+        hero.takeDamage(damage);
     }
 
     protected boolean checkAbility(Hero hero) {
@@ -48,8 +75,10 @@ public abstract class Hero {
 
         if (ability.getCooldown() <= 0 || mana >= ability.getManaConsumption()) {
             ability.use(hero);
+            mana -= ability.getManaConsumption();
             return true;
         }
+        System.out.println("Ability still on cooldown " + ability.getCooldown());
         return false;
     }
 }
