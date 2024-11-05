@@ -1,66 +1,72 @@
 import Heroes.Hero;
 
-import java.util.ArrayList;
-import java.util.Queue;
-import java.util.Random;
-import java.util.Stack;
+import java.util.*;
 
 public class TurnManager {
     private int round;
-    private ArrayList<Hero> heroes;
-    private Stack<Hero> ranking;
+    private final ArrayList<Hero> heroes;
+    private final Queue<Hero> ranking;
 
     public TurnManager(ArrayList<Hero> heroes) {
         this.round = 0;
         this.heroes = heroes;
-        ranking = new Stack<>();
+        ranking = new LinkedList<>();
     }
 
     public void start() {
-        while (heroes.size() != 1) {
+        attackOrder();
+
+        while (ranking.size() != 4) {
             round++;
             System.out.println("Round " + round + " start:");
             attackRound();
+            roundRecap();
         }
 
         LeaderBoard();
     }
 
+    private void attackOrder() {
+        heroes.sort(Comparator.comparingInt(Hero::getSpeed).reversed());
+    }
+
     private void attackRound() {
         for (int i = 0; i < heroes.size(); i++) {
-            int enemyIndex;
+            heroes.get(i).setMana(1);
 
-            while (true) {
-                enemyIndex = new Random().nextInt(0, heroes.size());
-                if (enemyIndex != i) {
-                    break;
-                }
-            }
+            Hero enemy = heroes.get(i).attack(heroes,ranking);
 
-            heroes.get(i).attack(heroes.get(enemyIndex));
-            if (heroes.get(enemyIndex).getHealth() <= 0) {
-                ranking.push(heroes.get(enemyIndex));
-                heroes.remove(enemyIndex);
+            checkEnemyDead(enemy);
+
+            if(ranking.size() == 3){
+                ranking.add(heroes.get(i));
+                return;
             }
+        }
+    }
+
+    private void checkEnemyDead(Hero hero) {
+        if (hero.getHealth() <= 0 && !ranking.contains(hero)) {
+            ranking.add(hero);
         }
     }
 
     private void roundRecap() {
-        if (heroes.size() > 0) {
-            for (int i = 0; i < heroes.size(); i++) {
-
-            }
-        }
-
-        if (ranking.size() > 0) {
-            for (int i = 0; i < ranking.size(); i++) {
-
-            }
+        System.out.println("---Round " + round + "---");
+        for (Hero currentHero : heroes) {
+            System.out.println("Name:" + currentHero.getName() + "/ HP: " + currentHero.getHealth() + "/ Mana: " + currentHero.getMana());
         }
     }
 
     private void LeaderBoard() {
-        ranking.push(heroes.get(0));
-        heroes.remove(heroes.get(0));
+        if (!ranking.isEmpty()) {
+            System.out.println("---Scoreboard---");
+            do {
+                Hero currentHero = ranking.poll();
+                if (currentHero != null) {
+                    System.out.println((ranking.size()+1) + "º- Name:" + currentHero.getName() + "/ HP: " + currentHero.getHealth() + "/ Mana: " + currentHero.getMana());
+                }
+            } while (!ranking.isEmpty());
+        }
     }
 }

@@ -13,7 +13,7 @@ public class Fireball extends AbstractAbility {
     @Override
     public void use(Hero hero) {
         super.use(hero);
-        hero.takeDamage(skill);
         System.out.println("Cast fireball: " + skill + " true damage");
+        hero.takeDamage(skill);
     }
 }

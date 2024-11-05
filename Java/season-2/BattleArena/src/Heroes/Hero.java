@@ -2,6 +2,10 @@ package Heroes;
 
 import Abilities.AbstractAbility;
 
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.Random;
+
 public abstract class Hero {
     protected String name;
     protected int health;
@@ -21,6 +25,14 @@ public abstract class Hero {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana){
+        this.mana += mana;
     }
 
     public int getSpeed() {
@@ -45,40 +57,69 @@ public abstract class Hero {
     }
 
     public void takeDamage(int damage) {
-        if(health <= 0){
+        if (health <= 0) {
             System.out.println(name + " is already dead");
             return;
         }
 
         if (defense < damage) {
-            System.out.println(name + " took " + (damage - defense) + " damage");
             health -= damage - defense;
+            System.out.println(name + " took " + (damage - defense) + " damage. Health: " + getHealth());
             return;
         }
 
         System.out.println(name + " resisted the " + damage + " damage because is defense is " + defense);
     }
 
-    public void attack(Hero hero) {
+    public Hero attack(ArrayList<Hero> heroes, Queue<Hero> ddd) {
         System.out.println(name + " turn:");
 
-        if (checkAbility(hero)) {
-            return;
+        if(getHealth() <= 0){
+            System.out.println("I'm dead");
+            return this;
         }
 
-        System.out.println("normal attack " + damage + " true damage");
+        int enemy = selectEnemy(heroes,ddd);
+
+        if (tryCastingAbility(heroes.get(enemy))) {
+            return heroes.get(enemy);
+        }
+
+        normalAttack(heroes.get(enemy));
+        return heroes.get(enemy);
+    }
+
+    protected void normalAttack(Hero hero){
+        System.out.println("normal attack " + damage + " true damage at " + hero.getName());
         hero.takeDamage(damage);
     }
 
-    protected boolean checkAbility(Hero hero) {
+    protected boolean tryCastingAbility(Hero hero) {
         ability.refreshCooldown();
 
-        if (ability.getCooldown() <= 0 || mana >= ability.getManaConsumption()) {
+        if(mana < ability.getManaConsumption()){
+            System.out.println("Not enough mana");
+            return false;
+        }
+
+        if (ability.getCooldown() <= 0 && mana >= ability.getManaConsumption()) {
             ability.use(hero);
             mana -= ability.getManaConsumption();
             return true;
         }
+
         System.out.println("Ability still on cooldown " + ability.getCooldown());
         return false;
+    }
+
+     protected int selectEnemy(ArrayList<Hero> heroes, Queue<Hero> ddd) {
+        int enemyIndex;
+        Random random = new Random();
+
+        do {
+            enemyIndex = random.nextInt(0, heroes.size());
+        } while (heroes.get(enemyIndex) == this || heroes.get(enemyIndex).getHealth() <= 0);
+
+        return enemyIndex;
     }
 }
