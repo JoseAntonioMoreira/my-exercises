@@ -1,4 +1,6 @@
-enum Colors {
+package Colors;
+
+public enum Colors {
     RED("\u001B[31m"),
     GREEN("\u001B[32m"),
     BLUE("\u001B[34m"),

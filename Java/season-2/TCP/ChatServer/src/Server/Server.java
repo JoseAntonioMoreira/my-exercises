@@ -1,3 +1,8 @@
+package Server;
+
+import ClientHandler.ClientHandler;
+import Commands.UtilitaryCommands.Say;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -16,6 +21,17 @@ public class Server {
         while (true) {
             Socket socket = serverSocket.accept();
             fixedPool.submit(new ClientHandler(socket));
+        }
+    }
+
+    public static void broadcast(ClientHandler clientHandler, String message) throws IOException {
+        Say say = new Say();
+
+        for (ClientHandler client : Server.clientHandlers) {
+            if (clientHandler == client) {
+                continue;
+            }
+            say.execute(client, message, clientHandler);
         }
     }
 }
