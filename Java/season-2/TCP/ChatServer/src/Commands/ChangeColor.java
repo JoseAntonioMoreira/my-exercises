@@ -5,7 +5,7 @@ import Colors.Colors;
 
 import java.io.IOException;
 
-public class ChangeColor extends DefaultCommand {
+public class ChangeColor extends CommandAbstract {
     @Override
     public void execute(ClientHandler clientHandler) throws IOException {
         clientHandler.getOut().write((clientHandler.getUsedColor() + "Available colors: RED, GREEN, YELLOW, BLUE, WHITE \n"));

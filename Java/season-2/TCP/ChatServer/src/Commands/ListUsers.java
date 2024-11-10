@@ -5,7 +5,7 @@ import Server.Server;
 
 import java.io.IOException;
 
-public class ListUsers extends DefaultCommand {
+public class ListUsers extends CommandAbstract {
     @Override
     public void execute(ClientHandler clientHandler) throws IOException {
         clientHandler.getOut().write((clientHandler.getUsedColor() + "There are currently " + Server.clientHandlers.size() + " users online: \n"));

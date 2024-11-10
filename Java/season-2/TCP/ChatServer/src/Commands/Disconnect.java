@@ -1,12 +1,11 @@
 package Commands;
 
 import ClientHandler.ClientHandler;
-import Commands.UtilitaryCommands.Say;
 import Server.Server;
 
 import java.io.IOException;
 
-public class Disconnect extends DefaultCommand {
+public class Disconnect extends CommandAbstract {
 
     @Override
     public void execute(ClientHandler clientHandler) throws IOException {

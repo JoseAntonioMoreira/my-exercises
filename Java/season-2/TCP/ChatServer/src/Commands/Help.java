@@ -4,7 +4,7 @@ import ClientHandler.ClientHandler;
 
 import java.io.IOException;
 
-public class Help extends DefaultCommand {
+public class Help extends CommandAbstract {
 
     @Override
     public void execute(ClientHandler clientHandler) throws IOException {

@@ -1,12 +1,12 @@
 package Commands.UtilitaryCommands;
 
 import ClientHandler.ClientHandler;
-import Commands.DefaultCommand;
+import Commands.CommandAbstract;
 import Server.Server;
 
 import java.io.IOException;
 
-public class ConfirmUniqueName extends DefaultCommand {
+public class ConfirmUniqueName extends CommandAbstract {
     @Override
     public void execute(ClientHandler clientHandler) throws IOException {
         while (true) {

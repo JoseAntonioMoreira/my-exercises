@@ -5,7 +5,7 @@ import Server.Server;
 
 import java.io.IOException;
 
-public class Whisper extends DefaultCommand {
+public class Whisper extends CommandAbstract {
     @Override
     public void execute(ClientHandler clientHandler) throws IOException {
         clientHandler.getOut().write((clientHandler.getUsedColor() + "To whom belongs this secret : \n"));

@@ -6,7 +6,7 @@ import Server.Server;
 
 import java.io.IOException;
 
-public class ChangeName extends DefaultCommand {
+public class ChangeName extends CommandAbstract {
 
     ConfirmUniqueName confirmUniqueName;
 

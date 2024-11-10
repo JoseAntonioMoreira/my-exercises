@@ -8,13 +8,13 @@ import java.util.Map;
 import Colors.Colors;
 import Commands.*;
 import Commands.UtilitaryCommands.ConfirmUniqueName;
-import Commands.UtilitaryCommands.Say;
+import Commands.UtilitaryCommands.Error;
 import Server.Server;
 
 
 public class ClientHandler implements Runnable {
     private final Socket socket;
-    private final Map<String, DefaultCommand> commandMap;
+    private final Map<String, CommandAbstract> commandMap;
 
     private final ConfirmUniqueName confirmUniqueName;
     private String usedColor = Colors.WHITE.getColor();
@@ -92,7 +92,7 @@ public class ClientHandler implements Runnable {
             } else if (commandMap.containsKey(request)) {
                 commandMap.get(request).execute(this);
             } else {
-                new DefaultCommand().execute(this);
+                new Error().execute(this);
             }
         }
     }
