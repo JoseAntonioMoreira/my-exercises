@@ -7,4 +7,9 @@ public class Rogue extends Hero{
         super(name, health, mana, defense, speed, damage);
         ability = new SneakAttack(damage);
     }
+
+    @Override
+    public void regainMana() {
+       mana += 5;
+    }
 }

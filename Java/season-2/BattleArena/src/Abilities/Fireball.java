@@ -7,7 +7,7 @@ public class Fireball extends AbstractAbility {
     public Fireball(int damage) {
         baseCooldown = 3;
         skill = damage * 3;
-        manaConsumption = 25;
+        manaConsumption = 75;
     }
 
     @Override

@@ -20,18 +20,18 @@ public class ShieldBlock extends AbstractAbility {
 
     public ShieldBlock(int defense) {
         activeTurns = 3;
-        turnsPassed = 0;
+        turnsPassed = 1;
         baseCooldown = 5;
         skill = defense * 3;
-        manaConsumption = 5;
+        manaConsumption = 20;
     }
 
     @Override
     public void use(Hero hero) {
         super.use(hero);
-        System.out.println("Cast shield block: +" + skill + " lasting " + activeTurns + " turns");
+        System.out.println("Cast shield block: +" + skill + " defense lasting " + activeTurns + " turns");
         hero.setDefense(hero.getDefense() + skill);
-        turnsPassed = 0;
+        turnsPassed = 1;
     }
 
     public int checkBuff() {
@@ -40,7 +40,7 @@ public class ShieldBlock extends AbstractAbility {
         } else {
             System.out.println("buff lost");
             setTurnsPassed(0);
-            return 5;
+            return 50;
         }
         return skill;
     }

@@ -31,10 +31,6 @@ public abstract class Hero {
         return mana;
     }
 
-    public void setMana(int mana){
-        this.mana += mana;
-    }
-
     public int getSpeed() {
         return speed;
     }
@@ -56,6 +52,9 @@ public abstract class Hero {
         this.damage = damage;
     }
 
+    public void regainMana(){
+        this.mana += 1;
+    }
     public void takeDamage(int damage) {
         if (health <= 0) {
             System.out.println(name + " is already dead");

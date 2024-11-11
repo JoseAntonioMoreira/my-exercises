@@ -4,9 +4,9 @@ import Heroes.Hero;
 
 public class SneakAttack extends AbstractAbility {
     public SneakAttack(int damage) {
-        baseCooldown = 2;
+        baseCooldown = 4;
         skill = damage * 5;
-        manaConsumption = 50;
+        manaConsumption = 35;
     }
 
     @Override

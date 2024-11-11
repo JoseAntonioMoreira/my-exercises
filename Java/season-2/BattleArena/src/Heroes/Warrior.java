@@ -11,6 +11,7 @@ public class Warrior extends Hero {
         ability = new ShieldBlock(defense);
     }
 
+
     @Override
     public Hero attack(ArrayList<Hero> heroes, Queue<Hero> ddd) {
         System.out.println(name + " turn:");

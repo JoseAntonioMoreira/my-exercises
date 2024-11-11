@@ -12,6 +12,11 @@ public class Cleric extends Hero {
     }
 
     @Override
+    public void regainMana() {
+        mana += 35;
+    }
+
+    @Override
     public Hero attack(ArrayList<Hero> heroes, Queue<Hero> ddd) {
         System.out.println(name + " turn:");
 
@@ -22,10 +27,8 @@ public class Cleric extends Hero {
 
         int enemy = selectEnemy(heroes, ddd);
 
-        if ((100 - getHealth()) >= (defense * 2)) {
-            if (tryCastingAbility(this)) {
-                return heroes.get(enemy);
-            }
+        if (tryCastingAbility(this)) {
+            return heroes.get(enemy);
         }
 
         normalAttack(heroes.get(enemy));

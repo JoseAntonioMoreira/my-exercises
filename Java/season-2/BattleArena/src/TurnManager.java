@@ -18,9 +18,9 @@ public class TurnManager {
 
         while (ranking.size() != 4) {
             round++;
-            System.out.println("Round " + round + " start:");
-            attackRound();
             roundRecap();
+            System.out.println("---Round " + round + " start---");
+            attackRound();
         }
 
         LeaderBoard();
@@ -32,7 +32,7 @@ public class TurnManager {
 
     private void attackRound() {
         for (int i = 0; i < heroes.size(); i++) {
-            heroes.get(i).setMana(1);
+            heroes.get(i).regainMana();
 
             Hero enemy = heroes.get(i).attack(heroes,ranking);
 
