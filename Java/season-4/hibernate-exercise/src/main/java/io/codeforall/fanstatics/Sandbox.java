@@ -14,10 +14,12 @@ public class Sandbox {
         // entity manager from the entity manager factory
         EntityManager em = emf.createEntityManager();
 
+
+        Details details = new Details();
+        details.setName("Cristiano Penaldo");
+        details.setAge(39);
         Cadet cadet = new Cadet();
-        cadet.setId(1);
-        cadet.setName("Cristiano Penaldo");
-        cadet.setAge(39);
+        cadet.setDetails(details);
 
         em.getTransaction().begin();
         em.persist(cadet);
@@ -26,7 +28,11 @@ public class Sandbox {
         // Close the database connection
         em.close();
 
+        FetchDatabase fetchDatabase = new FetchDatabase(emf.createEntityManager());
+        System.out.println(fetchDatabase.getCadetbyID(1).getDetails().getName());
+
         // Shutdown JPA
         emf.close();
+
     }
 }
