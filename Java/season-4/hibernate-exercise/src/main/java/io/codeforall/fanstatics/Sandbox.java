@@ -25,6 +25,23 @@ public class Sandbox {
         em.persist(cadet);
         em.getTransaction().commit();
 
+        em.getTransaction().begin();
+        Cadet mergedCadet = em.merge(cadet);
+
+        details.setAge(40);
+        mergedCadet.setDetails(details);
+        em.getTransaction().commit();
+
+        Details OtaoDetails = new Details();
+        OtaoDetails.setName("Rui Otão");
+        OtaoDetails.setAge(19);
+        Cadet cadetOtao = new Cadet();
+        cadetOtao.setDetails(OtaoDetails);
+
+        em.getTransaction().begin();
+        em.persist(cadetOtao);
+        em.getTransaction().commit();
+
         // Close the database connection
         em.close();
 
