@@ -3,10 +3,13 @@ div.first {
     background-color: orange;
     width: 400px;
     height: 300px;
+    padding-top: 20px;
 }
 
 div.second {
-    transform: translate(15%, 20%);
+    /*transform: translate(15%, 20%);*/
+    margin-left: 20px;
+
     padding-left: 25%;
     background: green;
     border: 10px;
