@@ -1,0 +1,43 @@
+div.first {
+    margin-top: 5%;
+    background-color: orange;
+    width: 400px;
+    height: 300px;
+}
+
+div.second {
+    transform: translate(15%, 20%);
+    padding-left: 25%;
+    background: green;
+    border: 10px;
+    border-style: solid;
+    border-color: black;
+    width: 45%;
+    height: 65%;
+}
+
+.paragraf {
+    width: 26%;
+    background-color: white;
+    margin-top: 50%;
+    margin-left: 10%;
+}
+
+.padding {
+
+    background: green;
+    width: 100px;
+    height: 100px;
+}
+
+.margin {
+    background: orange;
+}
+
+.border {
+    border: 10px;
+    border: black;
+    border-style: solid;
+    width: 100px;
+    height: 100px;
+}
