@@ -6,6 +6,8 @@ class Client{
 }
 
 class Something{
+    #clients;
+    
     constructor(){
         this.clients = []
     }
